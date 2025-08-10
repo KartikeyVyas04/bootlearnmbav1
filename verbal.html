@@ -198,7 +198,7 @@ footer {
   <a href="index.html#home">Home</a>
   <a href="quant.html">Quant</a>
   <a href="lrdi.html">LR-DI</a>
-  <a href="verbal.html">Verbal</a>
+  <a href="verbal.html" style="background:var(--accent);color:white;">Verbal</a>
   <a href="mocks.html">Mock Tests</a>
   <a href="essays.html">Essay/GD</a>
   <a href="gk.html">Current Affairs</a>
@@ -207,7 +207,7 @@ footer {
 <div class="main-container">
   <h1 style="color:var(--primary); text-align:center; margin-bottom:30px;">Verbal Ability</h1>
   <p style="text-align:center; max-width:800px; margin:0 auto 40px auto; color:#555;">
-    Explore curated playlists covering Reading Comprehension, Grammar, Vocabulary, and Verbal topics. Expand sections below and click videos to watch on YouTube.
+    Explore curated playlists covering all Verbal subtopics. Open a section to view and play relevant YouTube videos.
   </p>
 
   <div id="accordion-container"></div>
@@ -218,29 +218,10 @@ footer {
 </footer>
 
 <script>
-// Verbal subtopic playlists
-const sections = [
-  {
-    key: 'reading_comprehension',
-    title: '📖 Reading Comprehension',
-    description: 'Techniques for quick reading, inference, and answering RC questions efficiently.'
-  },
-  {
-    key: 'grammar',
-    title: '📝 Grammar & Usage',
-    description: 'Master grammar rules, sentence correction, and error spotting.'
-  },
-  {
-    key: 'vocabulary',
-    title: '📚 Vocabulary Building',
-    description: 'Learn word usage, synonyms, antonyms, and contextual vocab.'
-  },
-  {
-    key: 'verbal_ability',
-    title: '🔤 Verbal Ability',
-    description: 'Cover para jumbles, sentence completion, and verbal reasoning.'
-  }
-];
+// Generate readable category titles
+function formatCategoryName(key) {
+  return key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+}
 
 // Template for creating a video card
 function createCard(video) {
@@ -253,25 +234,25 @@ function createCard(video) {
         </div>
         <div class="content">
           <h4>${video.title}</h4>
-          <p>${video.channel} | ${video.duration}</p>
+          <p>${video.channel} ${video.duration ? `| ${video.duration}` : ''}</p>
         </div>
       </a>
     </div>
   `;
 }
 
-// Fetch verbal videos JSON and render accordions
+// Fetch and render all categories from JSON
 fetch('verbal-videos.json')
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('accordion-container');
-    container.innerHTML = sections.map(section => {
-      const videos = data[section.key] || [];
+
+    container.innerHTML = Object.keys(data).map(key => {
+      const videos = data[key];
       return `
         <div class="accordion">
-          <div class="accordion-header">${section.title} <span>▶</span></div>
+          <div class="accordion-header">${formatCategoryName(key)} <span>▶</span></div>
           <div class="accordion-body">
-            <p>${section.description}</p>
             <div class="video-grid">
               ${videos.map(createCard).join('')}
             </div>
@@ -280,7 +261,7 @@ fetch('verbal-videos.json')
       `;
     }).join('');
 
-    // Accordion toggle logic: only one open at a time
+    // Accordion toggle: one open at a time
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const parent = header.parentElement;
@@ -290,9 +271,9 @@ fetch('verbal-videos.json')
           if (acc !== parent) {
             acc.classList.remove('open');
             acc.querySelector('.accordion-header').classList.remove('active');
-            const otherBody = acc.querySelector('.accordion-body');
-            otherBody.classList.remove('open');
-            otherBody.style.maxHeight = null;
+            const b = acc.querySelector('.accordion-body');
+            b.classList.remove('open');
+            b.style.maxHeight = null;
           }
         });
 
