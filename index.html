@@ -15,21 +15,18 @@
   --muted: #6b7280;
   --radius: 12px;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 html { scroll-behavior: smooth; }
 
+/* HEADER */
 header {
   background: linear-gradient(135deg, var(--primary), #0e2550);
   color: white;
   padding: 80px 20px 40px 20px;
   text-align: center;
 }
-header h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-}
+header h1 { font-size: 2.8rem; font-weight: 800; }
 header p {
   font-size: 1.2rem;
   margin-top: 10px;
@@ -78,18 +75,36 @@ header .hero-subpoints p {
   color: #e0e6f1;
 }
 
-nav {
-  background: white;
-  padding: 12px 20px;
+/* NAVBAR as SIDEBAR */
+.navbar {
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
-  z-index: 10;
-  border-bottom: 1px solid #eee;
+  z-index: 1001;
 }
-nav a {
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+.menu-toggle {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li a {
   text-decoration: none;
   font-weight: 600;
   color: var(--primary);
@@ -97,11 +112,48 @@ nav a {
   border-radius: var(--radius);
   transition: background 0.2s ease, color 0.2s ease;
 }
-nav a:hover, nav a:focus {
+.nav-links li a:hover,
+.nav-links li a:focus {
   background: var(--accent);
   color: white;
+  outline: none;
 }
 
+/* Overlay for mobile sidebar */
+.overlay {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+.overlay.show { display: block; }
+
+/* Mobile Sidebar */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 220px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    padding-top: 60px;
+    gap: 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    z-index: 1002;
+  }
+  .nav-links.show { left: 0; }
+  .nav-links li a {
+    display: block;
+    padding: 14px 20px;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+/* CONTENT AREA */
 .home-content {
   max-width: 1100px;
   margin: 40px auto 80px auto;
@@ -127,187 +179,50 @@ nav a:hover, nav a:focus {
   color: var(--accent);
   margin: 20px 0 10px 0;
 }
-.home-content p, .home-content li {
-  margin-bottom: 12px;
-  font-size: 1rem;
-}
-.home-content ul {
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
+.home-content p, .home-content li { margin-bottom: 12px; font-size: 1rem; }
+.home-content ul { margin-left: 20px; margin-bottom: 20px; }
 .content-box {
   padding: 25px;
   border-left: 4px solid var(--accent);
   margin-bottom: 30px;
 }
-
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  border-radius: var(--radius);
-  overflow: hidden;
+  width: 100%; border-collapse: collapse; margin: 20px 0;
+  border-radius: var(--radius); overflow: hidden;
 }
 table th {
-  background: var(--primary);
-  color: white;
-  padding: 12px;
-  text-align: left;
-  font-weight: 600;
+  background: var(--primary); color: white; padding: 12px;
+  text-align: left; font-weight: 600;
 }
-table td {
-  padding: 12px;
-  border-bottom: 1px solid #eee;
-}
-table tr:nth-child(even) {
-  background: #f9f9f9;
-}
-
+table td { padding: 12px; border-bottom: 1px solid #eee; }
+table tr:nth-child(even) { background: #f9f9f9; }
 .highlight-box {
   background: linear-gradient(135deg, var(--accent), #ff9a47);
-  color: white;
-  padding: 20px;
-  border-radius: var(--radius);
-  margin: 20px 0;
-  font-weight: 600;
-  text-align: center;
+  color: white; padding: 20px; border-radius: var(--radius);
+  margin: 20px 0; font-weight: 600; text-align: center;
 }
-
 .tips-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin: 30px 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; margin: 30px 0;
 }
 .tip-card {
-  padding: 20px;
-  border-top: 3px solid var(--accent);
+  padding: 20px; border-top: 3px solid var(--accent);
 }
-.tip-card h4 {
-  color: var(--primary);
-  margin-bottom: 10px;
-}
+.tip-card h4 { color: var(--primary); margin-bottom: 10px; }
 
-section {
-  max-width: 1100px;
-  margin: 50px auto;
-  padding: 0 20px;
-  min-height: 80px;
-}
-section h2 {
-  font-size: 1.8rem;
-  color: var(--primary);
-  margin-bottom: 20px;
-}
-
+/* FOOTER */
 footer {
-  text-align: center;
-  padding: 20px;
-  color: var(--muted);
+  text-align: center; padding: 20px; color: var(--muted);
   font-size: 0.9rem;
 }
+
+/* RESPONSIVE */
 @media (max-width: 600px) {
   header h1 { font-size: 2rem; }
   header .hero-subpoints { flex-direction: column; }
   .home-content h2 { font-size: 1.4rem; }
   .tips-grid { grid-template-columns: 1fr; }
 }
-@media (max-width: 768px) {
-  nav {
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 10px;
-  }
-  nav a {
-    font-size: 0.9rem;
-    padding: 6px 10px;
-  }
-}
-@media (max-width: 480px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
-  nav a {
-    display: block;
-    width: 100%;
-    text-align: center;
-    border-radius: 8px;
-    padding: 10px 0;
-    background: white;
-  }
-}
-/* Base (desktop) styling */
-.hero-subpoints {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.hero-subpoints > div {
-  flex: 1;
-  background: white; /* optional card background */
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-  text-align: center;
-}
-
-.hero-subpoints h3 {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-}
-
-.hero-subpoints p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.5;
-}
-
-/* Tablet adjustments */
-@media (max-width: 900px) {
-  .hero-subpoints h3 {
-    font-size: 1.1rem;
-  }
-  .hero-subpoints p {
-    font-size: 0.95rem;
-  }
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .hero-subpoints {
-    flex-direction: column;      /* stack vertically */
-    align-items: center;
-    gap: 20px;
-  }
-  .hero-subpoints > div {
-    width: 100%;
-    max-width: 400px;
-  }
-  .hero-subpoints h3 {
-    font-size: 1.05rem;
-  }
-  .hero-subpoints p {
-    font-size: 0.9rem;
-  }
-}
-
-/* Small phone adjustments */
-@media (max-width: 480px) {
-  header#home h1 {
-    font-size: 1.6rem;
-  }
-  header#home p {
-    font-size: 0.95rem;
-    padding: 0 10px;
-  }
-  .hero-subpoints > div {
-    padding: 15px;
-  }
-}
-
 </style>
 </head>
 <body>
@@ -316,32 +231,28 @@ footer {
   <h1>BootLearn-MBA</h1>
   <p>India's first fully-free MBA exam prep platform — curated video lectures, mock tests, and strategies from top educators to help you crack CAT, XAT, SNAP and more with confidence.</p>
   <a href="learn.html" class="cta-btn">Start Learning Now</a>
-
   <div class="hero-subpoints">
-    <div>
-      <h3>🎯 Focused Syllabus</h3>
-      <p>Structured learning paths for Quant, LR-DI, Verbal, Mocks, and GD/PI prep.</p>
-    </div>
-    <div>
-      <h3>📚 Best Free Resources</h3>
-      <p>Handpicked YouTube lectures, notes, and practice sets — zero paywalls.</p>
-    </div>
-    <div>
-      <h3>⚡ Smart Learning</h3>
-      <p>Track progress with visual bars, learn at your own pace, and never lose motivation.</p>
-    </div>
+    <div><h3>🎯 Focused Syllabus</h3><p>Structured learning paths for Quant, LR-DI, Verbal, Mocks, and GD/PI prep.</p></div>
+    <div><h3>📚 Best Free Resources</h3><p>Handpicked YouTube lectures, notes, and practice sets — zero paywalls.</p></div>
+    <div><h3>⚡ Smart Learning</h3><p>Track progress with visual bars, learn at your own pace, and never lose motivation.</p></div>
   </div>
 </header>
 
-<nav aria-label="Main navigation">
-  <a href="#home">Home</a>
-  <a href="quant.html">Quant</a>
-  <a href="lrdi.html">LR-DI</a>
-  <a href="verbal.html">Verbal</a>
-  <a href="mocks.html">Mock Tests</a>
-  <a href="essays.html">Essay/GD</a>
-  <a href="gk.html">Current Affairs</a>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">BootLearn-MBA</div>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">☰</button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="quant.html">Quant</a></li>
+    <li><a href="lrdi.html">LR-DI</a></li>
+    <li><a href="verbal.html">Verbal</a></li>
+    <li><a href="mocks.html">Mock Tests</a></li>
+    <li><a href="essays.html">Essay/GD</a></li>
+    <li><a href="gk.html">Current Affairs</a></li>
+  </ul>
 </nav>
+<div class="overlay" id="overlay"></div>
 
 <div class="home-content">
   <h2>CAT Exam Structure 2025</h2>
@@ -443,7 +354,6 @@ footer {
         <tr><td>Welingkar Mumbai</td><td>80-85</td><td>₹11 LPA</td></tr>
         <tr><td>NMIMS Mumbai</td><td>94-96</td><td>₹23 LPA</td></tr>
         <tr><td>VIT Business School</td><td>80-85</td><td>₹9 LPA</td></tr>
-        <!-- Add more as desired -->
       </tbody>
     </table>
     <h3>TIER-3 (70-85 Percentile Useful Colleges)</h3>
@@ -584,9 +494,30 @@ footer {
   </div>
 </div>
 
-
 <footer>
   &copy; 2025 BootLearn-MBA – Curated Free Learning for Everyone
 </footer>
+
+<script>
+// COLLAPSIBLE SIDEBAR
+const toggleBtn=document.getElementById('menu-toggle');
+const navLinks=document.getElementById('nav-links');
+const overlay=document.getElementById('overlay');
+toggleBtn.addEventListener('click',()=>{
+  navLinks.classList.toggle('show');
+  overlay.classList.toggle('show');
+});
+overlay.addEventListener('click',()=>{
+  navLinks.classList.remove('show');
+  overlay.classList.remove('show');
+});
+navLinks.querySelectorAll('a').forEach(link=>{
+  link.addEventListener('click',()=>{
+    navLinks.classList.remove('show');
+    overlay.classList.remove('show');
+  });
+});
+</script>
+
 </body>
 </html>
