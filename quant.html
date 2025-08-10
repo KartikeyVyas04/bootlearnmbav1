@@ -233,10 +233,14 @@ footer {
 //   `;
 // }
   function createCard(video) {
-  // Check if id looks like a playlist ID (starts with 'PL' usually)
   const isPlaylist = video.id.startsWith('PL');
 
-  // Construct URL accordingly
+  // For playlists, use a generic playlist icon thumbnail URL
+  // Replace 'playlist-placeholder.png' with your actual placeholder image URL or path
+  const thumbnailUrl = isPlaylist
+    ? 'https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_playlist.png' // example free playlist icon
+    : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+
   const url = isPlaylist
     ? `https://www.youtube.com/playlist?list=${video.id}`
     : `https://www.youtube.com/watch?v=${video.id}`;
@@ -245,7 +249,7 @@ footer {
     <div class="card">
       <a href="${url}" target="_blank" rel="noopener" class="video-link">
         <div class="thumbnail-wrapper">
-          <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.title}">
+          <img src="${thumbnailUrl}" alt="${video.title}">
           <div class="play-button-overlay">▶</div>
         </div>
         <div class="content">
@@ -256,6 +260,7 @@ footer {
     </div>
   `;
 }
+
 
 
 // Fetch & render all categories from JSON
@@ -309,5 +314,6 @@ fetch('quants-videos.json')
 
 </body>
 </html>
+
 
 
