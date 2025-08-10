@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BootLearn-MBA | Logical Reasoning & Data Interpretation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #1a3c72;
+  --accent: #f77e21;
+  --bg: #fafbfc;
+  --text: #222;
+  --muted: #6b7280;
+  --radius: 12px;
+}
+* { margin:0; padding:0; box-sizing: border-box;}
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height:1.6;}
+html { scroll-behavior: smooth; }
+
+/* Navbar */
+nav {
+  background: white;
+  padding: 12px 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #eee;
+}
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+nav a:hover, nav a:focus {
+  background: var(--accent);
+  color: white;
+}
+
+/* Main container */
+.main-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px 50px 20px;
+}
+
+/* Accordion */
+.accordion {
+  background: white;
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+.accordion.open {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.accordion-header {
+  background: var(--primary);
+  color: white;
+  padding: 14px 18px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.accordion-header:hover {
+  background: #0e2550;
+}
+.accordion-header span {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+}
+.accordion-header.active span {
+  transform: rotate(90deg);
+}
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: #fff;
+  padding: 0 18px;
+}
+.accordion-body.open {
+  padding: 20px 18px 25px;
+}
+
+/* Video grid & thumbnail cards */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+.card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+}
+.video-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+}
+.thumbnail-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.thumbnail-wrapper img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.play-button-overlay {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: rgba(247, 126, 33, 0.85);
+  text-shadow: 0 0 8px rgba(0,0,0,0.6);
+  pointer-events: none;
+}
+.card .content {
+  padding: 10px 14px 14px;
+}
+.card .content h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: var(--accent);
+}
+.card .content p {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .accordion-header { font-size: 1rem; }
+  .card .content h4 { font-size: 0.9rem; }
+}
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+  }
+  nav a {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px 0;
+    background: white;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav aria-label="Main navigation">
+  <a href="index.html#home">Home</a>
+  <a href="quant.html">Quant</a>
+  <a href="lrdi.html">LR-DI</a>
+  <a href="verbal.html">Verbal</a>
+  <a href="mocks.html">Mock Tests</a>
+  <a href="essays.html">Essay/GD</a>
+  <a href="gk.html">Current Affairs</a>
+</nav>
+
+<div class="main-container">
+  <h1 style="color:var(--primary); text-align:center; margin-bottom:30px;">Logical Reasoning & Data Interpretation</h1>
+  <p style="text-align:center; max-width:800px; margin:0 auto 40px auto; color:#555;">
+    Explore curated playlists covering Puzzles, Data Interpretation sets, and Logical Reasoning topics. Expand sections below and click videos to watch on YouTube.
+  </p>
+
+  <div id="accordion-container"></div>
+</div>
+
+<footer>
+  &copy; 2025 BootLearn-MBA – Curated Free Learning for Everyone
+</footer>
+
+<script>
+// LR-DI playlists
+const sections = [
+  { key: 'puzzles', title: '🧩 Puzzle Solving', description: 'Practice a wide range of puzzles including seating arrangements, blood relations, directions, and more.' },
+  { key: 'data_interpretation', title: '📊 Data Interpretation', description: 'Charts, tables, caselets, and graphs — master data analysis for swift answers.' },
+  { key: 'logical_reasoning', title: '🧠 Logical Reasoning', description: 'Logical sequences, statements & assumptions, critical reasoning, and more to sharpen your reasoning skills.' }
+];
+
+// Create a single video card html
+function createCard(video) {
+  return `
+    <div class="card">
+      <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank" rel="noopener" class="video-link">
+        <div class="thumbnail-wrapper">
+          <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.title}">
+          <div class="play-button-overlay">▶</div>
+        </div>
+        <div class="content">
+          <h4>${video.title}</h4>
+          <p>${video.channel} | ${video.duration}</p>
+        </div>
+      </a>
+    </div>
+  `;
+}
+
+// Load videos dynamically from lrdi-videos.json
+fetch('lrdi-videos.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('accordion-container');
+    container.innerHTML = sections.map(sec => {
+      const videos = data[sec.key] || [];
+      return `
+        <div class="accordion">
+          <div class="accordion-header">${sec.title} <span>▶</span></div>
+          <div class="accordion-body">
+            <p>${sec.description}</p>
+            <div class="video-grid">
+              ${videos.map(createCard).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Accordion toggle logic: only one open at a time
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const parent = header.parentElement;
+        const body = header.nextElementSibling;
+
+        document.querySelectorAll('.accordion').forEach(acc => {
+          if(acc !== parent){
+            acc.classList.remove('open');
+            acc.querySelector('.accordion-header').classList.remove('active');
+            const otherBody = acc.querySelector('.accordion-body');
+            otherBody.classList.remove('open');
+            otherBody.style.maxHeight = null;
+          }
+        });
+
+        header.classList.toggle('active');
+        parent.classList.toggle('open');
+        body.classList.toggle('open');
+
+        if(body.classList.contains('open')){
+          body.style.maxHeight = body.scrollHeight + 40 + 'px';
+        } else {
+          body.style.maxHeight = null;
+        }
+      });
+    });
+  })
+  .catch(err => {
+    console.error('Failed to load lrdi-videos.json', err);
+    document.getElementById('accordion-container').innerHTML = '<p style="color:red;">Failed to load videos.</p>';
+  });
+</script>
+
+</body>
+</html>

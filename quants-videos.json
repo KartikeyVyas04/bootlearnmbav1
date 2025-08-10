@@ -1,0 +1,52 @@
+{
+  "arithmetic": [
+    {
+      "id": "VT9-jeEmlJ8",
+      "title": "Speed Maths 1 ",
+      "channel": "Rodha",
+      "duration": "31 min"
+    },
+    {
+      "id": "AbcDefGhIjK",
+      "title": "Time & Work Shortcuts",
+      "channel": "Rodha",
+      "duration": "22 min"
+    },
+    {
+      "id": "XyzAbc12345",
+      "title": "Simple vs Compound Interest",
+      "channel": "Career Launcher",
+      "duration": "20 min"
+    }
+  ],
+  "algebra": [
+    {
+      "id": "LmnoPqrStUv",
+      "title": "Linear Equations Basics",
+      "channel": "2IIM CAT",
+      "duration": "18 min"
+    },
+    {
+      "id": "PqrStuVwxYz",
+      "title": "Quadratic Roots & Properties",
+      "channel": "Unacademy CAT",
+      "duration": "25 min"
+    }
+  ],
+  "geometry": [
+    {
+      "id": "GeoTriangleID",
+      "title": "Triangle Properties",
+      "channel": "Quantum CAT",
+      "duration": "20 min"
+    }
+  ],
+  "numbers": [
+    {
+      "id": "NumDivRulesID",
+      "title": "Divisibility Rules",
+      "channel": "CATKing",
+      "duration": "14 min"
+    }
+  ]
+}

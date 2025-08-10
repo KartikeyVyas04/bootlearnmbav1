@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BootLearn-MBA | Essay / Group Discussion</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #1a3c72;
+  --accent: #f77e21;
+  --bg: #fafbfc;
+  --text: #222;
+  --muted: #6b7280;
+  --radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  font-family: 'Inter', sans-serif; 
+  background: var(--bg); 
+  color: var(--text); 
+  line-height: 1.6; 
+  min-height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+}
+html { scroll-behavior: smooth; }
+
+/* Navbar */
+nav {
+  background: white;
+  padding: 12px 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #eee;
+}
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+nav a:hover, nav a:focus {
+  background: var(--accent);
+  color: white;
+}
+
+/* Main Container */
+.main-container {
+  flex: 1;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Fun Placeholder Box */
+.placeholder-box {
+  background: white;
+  border-radius: var(--radius);
+  padding: 50px 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  font-size: 1.3rem;
+  color: var(--primary);
+  font-weight: 600;
+  line-height: 1.5;
+  position: relative;
+}
+.placeholder-box .emoji {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+  }
+  nav a {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px 0;
+    background: white;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <a href="index.html#home">Home</a>
+  <a href="quant.html">Quant</a>
+  <a href="lrdi.html">LR-DI</a>
+  <a href="verbal.html">Verbal</a>
+  <a href="mocks.html">Mock Tests</a>
+  <a href="essays.html" aria-current="page">Essay/GD</a>
+  <a href="gk.html">Current Affairs</a>
+</nav>
+
+<!-- Content -->
+<div class="main-container">
+  <div class="placeholder-box" role="alert" aria-live="polite">
+    <div class="emoji" aria-hidden="true">🤫🐾</div>
+    <p>
+      Shhh… this section is hibernating until the CAT exam is over.<br />
+      We promise it’ll wake up with fresh GD magic once you’ve slayed the CAT.
+    </p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 BootLearn-MBA – Curated Free Learning for Everyone
+</footer>
+
+</body>
+</html>

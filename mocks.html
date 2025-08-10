@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BootLearn-MBA | Mock Tests</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #1a3c72;
+  --accent: #f77e21;
+  --bg: #fafbfc;
+  --text: #222;
+  --muted: #6b7280;
+  --radius: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+html { scroll-behavior: smooth; }
+
+/* Navbar */
+nav {
+  background: white;
+  padding: 12px 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #eee;
+}
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+nav a:hover, nav a:focus {
+  background: var(--accent);
+  color: white;
+}
+
+/* Container */
+.main-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px 60px 20px;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  color: var(--primary);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.subtitle {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+/* Benefits section */
+.benefits {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  margin-bottom: 40px;
+}
+.benefits h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.benefits-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.benefit-icon {
+  font-size: 1.5rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.benefit-text {
+  font-size: 1rem;
+}
+
+/* Tip */
+.tip {
+  text-align: center;
+  font-style: italic;
+  color: var(--muted);
+  margin: 10px auto 40px auto;
+}
+
+/* CTA Buttons Section */
+.cta-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.cta-card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  padding: 25px;
+  max-width: 300px;
+  text-align: center;
+}
+.cta-card h3 {
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+.cta-btn {
+  background: var(--accent);
+  color: white;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(247,126,33,0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(247,126,33,0.6);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  background: #fff;
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 720px) {
+  .benefits-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+  }
+  nav a {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px 0;
+    background: white;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <a href="index.html#home">Home</a>
+  <a href="quant.html">Quant</a>
+  <a href="lrdi.html">LR-DI</a>
+  <a href="verbal.html">Verbal</a>
+  <a href="mocks.html" aria-current="page">Mock Tests</a>
+  <a href="essays.html">Essay/GD</a>
+  <a href="gk.html">Current Affairs</a>
+</nav>
+
+<!-- Main content -->
+<div class="main-container">
+  <h1>Mock Tests: Your Key to CAT Success</h1>
+  <p class="subtitle">
+    Simulate real exam conditions, refine your strategy, and boost your score with targeted mock test practice.
+  </p>
+
+  <div class="benefits">
+    <h2>Why Mock Tests Matter</h2>
+    <div class="benefits-list">
+      <div class="benefit">
+        <div class="benefit-icon">🎯</div>
+        <div class="benefit-text">Experience the real CAT exam interface and time pressure.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">📊</div>
+        <div class="benefit-text">Identify weak areas and improve them strategically.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">⏱️</div>
+        <div class="benefit-text">Master time management and smart question selection.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">💡</div>
+        <div class="benefit-text">Reduce exam anxiety with repeated practice and feedback analysis.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">📈</div>
+        <div class="benefit-text">Track your improvement with detailed performance reports.</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="tip"><strong>Tip:</strong> Aim for at least 15–20 full mocks before CAT day for maximum readiness.</p>
+
+  <div class="cta-cards">
+    <div class="cta-card">
+      <h3>Cracku Free CAT Mocks</h3>
+      <p>Highly rated full-length mocks with analytics and section-wise feedback.</p>
+      <a class="cta-btn" href="https://cracku.in/cat-mock-test?gad_source=1&gad_campaignid=22226532389&gbraid=0AAAAACnirf_cK1C3ozuWaG3SiwBFr51Cx&gclid=CjwKCAjw49vEBhAVEiwADnMbbADLkBzmMzqiaBDnD-ptjh6897LOLvyeyFI-1kJYE68TrzHoN55cFxoC7ogQAvD_BwE" target="_blank" rel="noopener">Take Test</a>
+    </div>
+    <div class="cta-card">
+      <h3>InsideIIM Daily Mocks</h3>
+      <p>Free sectional and full-length mocks for CAT, XAT, and other MBA exams.</p>
+      <a class="cta-btn" href="https://insideiim.com/free-daily-mba-mock-tests-cat-xat-other-mba-exams" target="_blank" rel="noopener">Take Test</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 BootLearn-MBA – Curated Free Learning for Everyone
+</footer>
+
+</body>
+</html>

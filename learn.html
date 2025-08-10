@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BootLearn-MBA | Start Learning</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #1a3c72;
+  --accent: #f77e21;
+  --bg: #fafbfc;
+  --text: #222;
+  --muted: #6b7280;
+  --radius: 12px;
+}
+* {margin:0; padding:0; box-sizing: border-box;}
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+html { scroll-behavior: smooth; }
+
+/* Navbar */
+nav {
+  background: white;
+  padding: 12px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #eee;
+}
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+nav a:hover, nav a:focus {
+  background: var(--accent);
+  color: white;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+  max-width: 900px;
+  margin: auto;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+.hero p {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* Sections Grid as Flex for Centering the Last Row */
+.sections-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center any incomplete last row */
+  gap: 25px;
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Card Layout - Improved Alignment */
+.section-card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 20px;
+  min-height: 300px;
+  text-align: center;
+  flex: 1 1 320px; /* Always at least 320px */
+  max-width: 330px; /* Set a max width to avoid huge stretches */
+}
+.section-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.section-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.section-card h3 {
+  color: var(--primary);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.section-card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: auto;
+  max-width: 250px;
+}
+.section-card a {
+  background: var(--accent);
+  color: white;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.section-card a:hover {
+  background: #e06511;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1050px) {
+  .sections-grid {
+    gap: 20px;
+  }
+  .section-card {
+    flex-basis: 45%;
+    max-width: 48%;
+  }
+}
+@media (max-width: 768px) {
+  .sections-grid {
+    gap: 15px;
+    padding: 20px 5px 30px;
+  }
+  .section-card {
+    flex-basis: 95%;
+    max-width: 98%;
+    min-height: 230px;
+    padding: 20px 10px;
+  }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+}
+@media (max-width: 480px) {
+  .sections-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .section-card {
+    max-width: 98vw;
+    padding: 15px 5px;
+    min-height: 120px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <a href="index.html#home">Home</a>
+  <a href="quant.html">Quant</a>
+  <a href="lrdi.html">LR-DI</a>
+  <a href="verbal.html">Verbal</a>
+  <a href="mocks.html">Mock Tests</a>
+  <a href="essays.html">Essay/GD</a>
+  <a href="gk.html">Current Affairs</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Start Your MBA Prep Journey</h1>
+  <p>Select a section below to dive straight into curated free resources, designed to help you ace your MBA entrance exams with confidence.</p>
+</div>
+
+<!-- Section Cards -->
+<div class="sections-grid">
+  <div class="section-card">
+    <div class="icon">📐</div>
+    <h3>Quantitative Aptitude</h3>
+    <p>Master Arithmetic, Algebra, Geometry & more with handpicked lessons.</p>
+    <a href="quant.html">Start Quant</a>
+  </div>
+
+  <div class="section-card">
+    <div class="icon">📊</div>
+    <h3>LR-DI</h3>
+    <p>Logic puzzles, Data Interpretation sets & reasoning strategies.</p>
+    <a href="lrdi.html">Start LR-DI</a>
+  </div>
+
+  <div class="section-card">
+    <div class="icon">📖</div>
+    <h3>Verbal Ability</h3>
+    <p>Reading comprehension, grammar, vocabulary & para jumbles.</p>
+    <a href="verbal.html">Start Verbal</a>
+  </div>
+
+  <div class="section-card">
+    <div class="icon">📝</div>
+    <h3>Mock Tests</h3>
+    <p>Simulate CAT & XAT exams and analyze your performance.</p>
+    <a href="mocks.html">Start Mocks</a>
+  </div>
+
+  <div class="section-card">
+    <div class="icon">💬</div>
+    <h3>Essay/GD</h3>
+    <p>Prepare for MBA Essay rounds & Group Discussions.</p>
+    <a href="essays.html">Start Essay/GD</a>
+  </div>
+
+  <div class="section-card">
+    <div class="icon">🌏</div>
+    <h3>Current Affairs</h3>
+    <p>Stay updated on business, economy, and global events.</p>
+    <a href="gk.html">Start Current Affairs</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 BootLearn-MBA – Curated Free Learning for Everyone
+</footer>
+
+</body>
+</html>

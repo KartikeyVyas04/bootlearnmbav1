@@ -1,0 +1,58 @@
+{
+  "reading_comprehension": [
+    {
+      "id": "RcVidID1",
+      "title": "Effective RC Strategies",
+      "channel": "CATPrepMaster",
+      "duration": "12 min"
+    },
+    {
+      "id": "RcVidID2",
+      "title": "Inference & Main Idea",
+      "channel": "Unacademy CAT",
+      "duration": "15 min"
+    }
+  ],
+  "grammar": [
+    {
+      "id": "GramVidID1",
+      "title": "Grammar Rules & Error Spotting",
+      "channel": "2IIM CAT",
+      "duration": "20 min"
+    },
+    {
+      "id": "GramVidID2",
+      "title": "Sentence Correction Techniques",
+      "channel": "Rodha",
+      "duration": "18 min"
+    }
+  ],
+  "vocabulary": [
+    {
+      "id": "VocabVidID1",
+      "title": "Synonyms & Antonyms",
+      "channel": "CATKing",
+      "duration": "22 min"
+    },
+    {
+      "id": "VocabVidID2",
+      "title": "Contextual Vocabulary Building",
+      "channel": "Career Launcher",
+      "duration": "25 min"
+    }
+  ],
+  "verbal_ability": [
+    {
+      "id": "VerbalVidID1",
+      "title": "Para Jumbles Simplified",
+      "channel": "Testbook",
+      "duration": "20 min"
+    },
+    {
+      "id": "VerbalVidID2",
+      "title": "Sentence Completion Explained",
+      "channel": "Quantum CAT",
+      "duration": "16 min"
+    }
+  ]
+}
