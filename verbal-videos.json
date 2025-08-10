@@ -52,13 +52,6 @@
     { "id": "_rjuDn3G3p0", "title": "Reading Comprehension Part 7", "channel": "", "duration": "" },
     { "id": "2HO5GZ5JEn8", "title": "Reading Comprehension Part 8", "channel": "", "duration": "" }
   ],
-  "varc_supergrads": [
-    { "id": "PLpUPbltJNtx4Oz6EQkN2O6LyjIkRs4L_8", "title": "Word Power Made Easy - Playlist", "channel": "", "duration": "" },
-    { "id": "PLpUPbltJNtx6mWdjJsgIqv5PlfvMqUPcd", "title": "Passages - Playlist", "channel": "", "duration": "" }
-  ],
-  "varc_ravi_prakash": [
-    { "id": "PLG4bwc5fquzj1ApF_-eg1UAO3qTWQJenI", "title": "Complete Playlist", "channel": "", "duration": "" }
-  ],
   "varc_1000": [
     { "id": "id6Ag4sqT8o", "title": "VARC 1000 Part 1", "channel": "", "duration": "" },
     { "id": "zx96ZpJGTwA", "title": "VARC 1000 Part 2", "channel": "", "duration": "" },
@@ -71,9 +64,5 @@
     { "id": "MtW-kICAYOg", "title": "VARC 1000 Part 9", "channel": "", "duration": "" },
     { "id": "QLiF55x-GFI", "title": "VARC 1000 Part 10", "channel": "", "duration": "" }
   ],
-  "varc_after_completing_syllabus": [
-    { "id": "iEg1QkyqVPE", "title": "VARC Game Changer Part 1", "channel": "", "duration": "" },
-    { "id": "y4qzUQMNhZQ", "title": "VARC Game Changer Part 2", "channel": "", "duration": "" },
-    { "id": "DhWiPEFgES0", "title": "VARC Game Changer Part 3", "channel": "", "duration": "" }
-  ]
 }
+
