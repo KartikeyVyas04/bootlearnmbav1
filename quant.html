@@ -99,14 +99,13 @@ nav a:hover, nav a:focus {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
-  justify-content: start;
+  /* Removed justify-content to keep original sizing */
 }
 .card {
   background: white;
   border-radius: var(--radius);
   overflow: hidden;
-  max-width: 320px;        /* prevent oversized single card */
-  margin: 0 auto;         /* center single card */
+  /* Removed max-width and margin for original full width behavior */
   box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -285,3 +284,4 @@ fetch('quants-videos.json')
 
 </body>
 </html>
+
