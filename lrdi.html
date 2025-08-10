@@ -197,6 +197,23 @@ footer {
     background: white;
   }
 }
+  .video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* keeps cards at least 320px */
+  gap: 24px;
+  justify-content: start; /* align cards to start when fewer */
+}
+
+.card {
+  max-width: 320px;  /* fixed max width */
+  margin: 0 auto;    /* center if only one card */
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
 </style>
 </head>
 <body>
@@ -301,3 +318,4 @@ fetch('lrdi-videos.json')
 </script>
 </body>
 </html>
+
