@@ -32,8 +32,7 @@ header p {
   margin-top: 10px;
   color: #e3e9f6;
   max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto; margin-right: auto;
 }
 header .cta-btn {
   display: inline-block;
@@ -62,18 +61,11 @@ header .hero-subpoints div {
   padding: 16px 20px;
   border-radius: var(--radius);
   max-width: 260px;
+  text-align: center;
   backdrop-filter: blur(4px);
 }
-header .hero-subpoints h3 {
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-  color: #fff;
-}
-header .hero-subpoints p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #e0e6f1;
-}
+header .hero-subpoints h3 { font-size: 1.1rem; margin-bottom: 6px; color: #fff; }
+header .hero-subpoints p { font-size: 0.9rem; color: #e0e6f1; line-height: 1.4; }
 
 /* NAVBAR as SIDEBAR */
 .navbar {
@@ -87,141 +79,82 @@ header .hero-subpoints p {
   top: 0;
   z-index: 1001;
 }
-.logo {
-  font-weight: 800;
-  font-size: 1.2rem;
-  color: var(--primary);
-}
+.logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); }
 .menu-toggle {
   font-size: 1.8rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: none;
+  background: none; border: none; cursor: pointer; display: none;
 }
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
+.nav-links { list-style: none; display: flex; gap: 20px; }
 .nav-links li a {
-  text-decoration: none;
-  font-weight: 600;
+  text-decoration: none; font-weight: 600;
   color: var(--primary);
   padding: 6px 12px;
   border-radius: var(--radius);
   transition: background 0.2s ease, color 0.2s ease;
 }
-.nav-links li a:hover,
-.nav-links li a:focus {
-  background: var(--accent);
-  color: white;
-  outline: none;
-}
-
-/* Overlay for mobile sidebar */
+.nav-links li a:hover, .nav-links li a:focus { background: var(--accent); color: white;}
 .overlay {
-  display: none;
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: 1000;
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4); z-index: 1000;
 }
 .overlay.show { display: block; }
 
-/* Mobile Sidebar */
 @media (max-width: 768px) {
   .menu-toggle { display: block; }
   .nav-links {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 220px;
-    height: 100vh;
-    background: white;
-    flex-direction: column;
-    padding-top: 60px;
-    gap: 0;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
-    transition: left 0.3s ease;
-    z-index: 1002;
+    position: fixed; top: 0; left: -250px; width: 220px; height: 100vh;
+    background: white; flex-direction: column;
+    padding-top: 60px; gap: 0; box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    transition: left 0.3s ease; z-index: 1002;
   }
   .nav-links.show { left: 0; }
-  .nav-links li a {
-    display: block;
-    padding: 14px 20px;
-    border-bottom: 1px solid #eee;
-  }
+  .nav-links li a { display: block; padding: 14px 20px; border-bottom: 1px solid #eee;}
 }
 
 /* CONTENT AREA */
 .home-content {
   max-width: 1100px;
   margin: 40px auto 80px auto;
-  padding: 0 20px;
+  padding: 0 15px;
   background: white;
   border-radius: var(--radius);
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   color: #222;
 }
-.home-content h2 {
-  font-size: 2.2rem;
-  color: var(--primary);
-  margin-bottom: 30px;
-  text-align: center;
-}
-.home-content h3 {
-  font-size: 1.5rem;
-  color: var(--primary);
-  margin: 30px 0 15px 0;
-}
-.home-content h4 {
-  font-size: 1.2rem;
-  color: var(--accent);
-  margin: 20px 0 10px 0;
-}
-.home-content p, .home-content li { margin-bottom: 12px; font-size: 1rem; }
-.home-content ul { margin-left: 20px; margin-bottom: 20px; }
-.content-box {
-  padding: 25px;
-  border-left: 4px solid var(--accent);
-  margin-bottom: 30px;
-}
-table {
-  width: 100%; border-collapse: collapse; margin: 20px 0;
-  border-radius: var(--radius); overflow: hidden;
-}
-table th {
-  background: var(--primary); color: white; padding: 12px;
-  text-align: left; font-weight: 600;
-}
-table td { padding: 12px; border-bottom: 1px solid #eee; }
+.home-content h2 { font-size: 2rem; color: var(--primary); margin-bottom: 24px; text-align: center; }
+.home-content h3 { font-size: 1.3rem; color: var(--primary); margin: 28px 0 8px 0; }
+.home-content h4 { font-size: 1.1rem; color: var(--accent); margin: 17px 0 6px 0;}
+
+.home-content p, .home-content li { margin-bottom: 10px; font-size: 1rem; }
+.home-content ul { margin-left: 18px; margin-bottom: 18px; }
+.content-box { padding: 16px; border-left: 4px solid var(--accent); margin-bottom: 24px; }
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 600px; margin: 20px 0; border-radius: var(--radius);}
+table th { background: var(--primary); color: white; padding: 10px; text-align: left; font-weight: 600;}
+table td { padding: 10px; border-bottom: 1px solid #eee;}
 table tr:nth-child(even) { background: #f9f9f9; }
 .highlight-box {
   background: linear-gradient(135deg, var(--accent), #ff9a47);
-  color: white; padding: 20px; border-radius: var(--radius);
+  color: white; padding: 15px; border-radius: var(--radius);
   margin: 20px 0; font-weight: 600; text-align: center;
 }
-.tips-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px; margin: 30px 0;
-}
-.tip-card {
-  padding: 20px; border-top: 3px solid var(--accent);
-}
-.tip-card h4 { color: var(--primary); margin-bottom: 10px; }
+
+.tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 15px;}
+.tip-card { padding: 15px; border-top: 3px solid var(--accent);}
+.tip-card h4 { color: var(--primary); margin-bottom: 10px;}
 
 /* FOOTER */
 footer {
-  text-align: center; padding: 20px; color: var(--muted);
-  font-size: 0.9rem;
+  text-align: center; padding: 20px;
+  color: var(--muted); font-size: 0.9rem;
 }
 
-/* RESPONSIVE */
+/* Mobile tweaks */
 @media (max-width: 600px) {
-  header h1 { font-size: 2rem; }
-  header .hero-subpoints { flex-direction: column; }
-  .home-content h2 { font-size: 1.4rem; }
-  .tips-grid { grid-template-columns: 1fr; }
+  header h1 { font-size: 2rem;}
+  header p { font-size: 1rem;}
+  .home-content h2 { font-size: 1.2rem;}
+  table { min-width: 400px;}
 }
 </style>
 </head>
@@ -238,7 +171,6 @@ footer {
   </div>
 </header>
 
-<!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo">BootLearn-MBA</div>
   <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">☰</button>
@@ -256,15 +188,7 @@ footer {
 
 <div class="home-content">
   <h2>CAT Exam Structure 2025</h2>
-  <div class="content-box">
-    <h3>Exam Overview</h3>
-    <p><strong>CAT (Common Admission Test)</strong> is India's premier MBA entrance exam, conducted by IIMs. Held in November every year, CAT opens doors to 21 IIMs and 1,500+ top institutes.</p>
-    <div class="highlight-box">
-      📅 CAT 2025 Date: November 30, 2025 &nbsp; | &nbsp; ⏱️ Duration: 2 Hours &nbsp; | &nbsp; 💻 Mode: Computer-Based
-    </div>
-  </div>
-  <div class="content-box">
-    <h3>Section-wise Breakdown</h3>
+  <div class="content-box table-wrapper">
     <table>
       <thead>
         <tr>
@@ -285,7 +209,7 @@ footer {
   </div>
 
   <h2>CAT Marks vs Percentile (Analysis)</h2>
-  <div class="content-box">
+  <div class="content-box table-wrapper">
     <h3>Score vs Percentile (CAT 2024 Estimated)</h3>
     <table>
       <thead>
@@ -309,7 +233,7 @@ footer {
   </div>
 
   <h2>Top MBA Colleges via CAT (Sample of Top 50+)</h2>
-  <div class="content-box">
+  <div class="content-box table-wrapper">
     <h3>TIER-1 (99-100 Percentile)</h3>
     <table>
       <thead>
@@ -354,6 +278,7 @@ footer {
         <tr><td>Welingkar Mumbai</td><td>80-85</td><td>₹11 LPA</td></tr>
         <tr><td>NMIMS Mumbai</td><td>94-96</td><td>₹23 LPA</td></tr>
         <tr><td>VIT Business School</td><td>80-85</td><td>₹9 LPA</td></tr>
+        <!-- Add more as desired -->
       </tbody>
     </table>
     <h3>TIER-3 (70-85 Percentile Useful Colleges)</h3>
@@ -364,9 +289,7 @@ footer {
   </div>
 
   <h2>Tips to Score 99+ Percentile in CAT</h2>
-  <div class="highlight-box">
-    🎯 Key: High accuracy and smart selection matter more than number of attempts.
-  </div>
+  <div class="highlight-box">🎯 Key: High accuracy and smart selection matter more than number of attempts.</div>
   <div class="tips-grid">
     <div class="tip-card">
       <h4>1. Master Time Management</h4>
@@ -379,9 +302,8 @@ footer {
     <div class="tip-card">
       <h4>2. Section Strategies</h4>
       <p>VARC: Focus on RCs; read questions before passages.<br>
-      DILR: Identify easier sets and attempt TITA first.<br>
-      QA: Master Arithmetic, use shortcuts, and practice mental math.
-      </p>
+           DILR: Identify easier sets and attempt TITA first.<br>
+           QA: Master Arithmetic, use shortcuts, and practice mental math.</p>
     </div>
     <div class="tip-card">
       <h4>3. Practice Smart Mock Taking</h4>
@@ -394,7 +316,7 @@ footer {
     <div class="tip-card">
       <h4>4. Maximize Accuracy</h4>
       <ul>
-        <li>Aim for >75% accuracy; avoid wild guesses on MCQs.</li>
+        <li>Aim for &gt;75% accuracy; avoid wild guesses on MCQs.</li>
         <li>TITA has no negative marking, so try to solve more.</li>
       </ul>
     </div>
@@ -429,20 +351,22 @@ footer {
       <li>1-2 months: intensive mocks + in-depth analysis & revision.</li>
     </ul>
     <h4>Step 3: Weekly Routine Example</h4>
-    <table>
-      <thead>
-        <tr><th>Day</th><th>Morning</th><th>Evening</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Mon</td><td>QA Concepts</td><td>QA Practice</td></tr>
-        <tr><td>Tue</td><td>VARC Reading</td><td>VARC Practice</td></tr>
-        <tr><td>Wed</td><td>DILR Concepts</td><td>DILR Practice</td></tr>
-        <tr><td>Thu</td><td>Mixed Practice</td><td>Revision</td></tr>
-        <tr><td>Fri</td><td>Sectional Test</td><td>Test Analysis</td></tr>
-        <tr><td>Sat</td><td>Full Mock</td><td>Detailed Review</td></tr>
-        <tr><td>Sun</td><td>Revision Day</td><td>Light Reading</td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Morning</th><th>Evening</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Mon</td><td>QA Concepts</td><td>QA Practice</td></tr>
+          <tr><td>Tue</td><td>VARC Reading</td><td>VARC Practice</td></tr>
+          <tr><td>Wed</td><td>DILR Concepts</td><td>DILR Practice</td></tr>
+          <tr><td>Thu</td><td>Mixed Practice</td><td>Revision</td></tr>
+          <tr><td>Fri</td><td>Sectional Test</td><td>Test Analysis</td></tr>
+          <tr><td>Sat</td><td>Full Mock</td><td>Detailed Review</td></tr>
+          <tr><td>Sun</td><td>Revision Day</td><td>Light Reading</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <h2>Free CAT Resources & Study Materials</h2>
@@ -500,23 +424,12 @@ footer {
 
 <script>
 // COLLAPSIBLE SIDEBAR
-const toggleBtn=document.getElementById('menu-toggle');
-const navLinks=document.getElementById('nav-links');
-const overlay=document.getElementById('overlay');
-toggleBtn.addEventListener('click',()=>{
-  navLinks.classList.toggle('show');
-  overlay.classList.toggle('show');
-});
-overlay.addEventListener('click',()=>{
-  navLinks.classList.remove('show');
-  overlay.classList.remove('show');
-});
-navLinks.querySelectorAll('a').forEach(link=>{
-  link.addEventListener('click',()=>{
-    navLinks.classList.remove('show');
-    overlay.classList.remove('show');
-  });
-});
+const toggleBtn = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+const overlay = document.getElementById('overlay');
+toggleBtn.addEventListener('click', ()=>{ navLinks.classList.toggle('show'); overlay.classList.toggle('show'); });
+overlay.addEventListener('click', ()=>{ navLinks.classList.remove('show'); overlay.classList.remove('show'); });
+navLinks.querySelectorAll('a').forEach(link=>{ link.addEventListener('click', ()=>{ navLinks.classList.remove('show'); overlay.classList.remove('show'); }); });
 </script>
 
 </body>
