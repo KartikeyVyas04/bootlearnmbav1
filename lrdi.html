@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BootLearn-MBA | Logical Reasoning & Data Interpretation</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
 <style>
 :root {
   --primary: #1a3c72;
@@ -15,9 +14,7 @@
   --muted: #6b7280;
   --radius: 12px;
 }
-* {
-  margin:0; padding:0; box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing: border-box;}
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
@@ -26,19 +23,37 @@ body {
 }
 html { scroll-behavior: smooth; }
 
-/* Navbar */
-nav {
-  background: white;
-  padding: 12px 20px;
+/* Sidebar Navbar */
+.navbar {
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
-  z-index: 10;
-  border-bottom: 1px solid #eee;
+  z-index: 1001;
 }
-nav a {
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+.menu-toggle {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li a {
   text-decoration: none;
   font-weight: 600;
   color: var(--primary);
@@ -46,9 +61,43 @@ nav a {
   border-radius: var(--radius);
   transition: background 0.2s ease, color 0.2s ease;
 }
-nav a:hover, nav a:focus {
+.nav-links li a:hover {
   background: var(--accent);
   color: white;
+}
+
+/* Overlay for mobile sidebar */
+.overlay {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+.overlay.show { display: block; }
+
+/* Mobile Sidebar */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 220px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    padding-top: 60px;
+    gap: 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    z-index: 1002;
+  }
+  .nav-links.show { left: 0; }
+  .nav-links li a {
+    display: block;
+    padding: 14px 20px;
+    border-bottom: 1px solid #eee;
+  }
 }
 
 /* Main container */
@@ -87,9 +136,7 @@ nav a:hover, nav a:focus {
   font-size: 1.4rem;
   transition: transform 0.3s ease;
 }
-.accordion-header.active span {
-  transform: rotate(90deg);
-}
+.accordion-header.active span { transform: rotate(90deg); }
 .accordion-body {
   max-height: 0;
   overflow: hidden;
@@ -101,7 +148,7 @@ nav a:hover, nav a:focus {
   padding: 20px 18px 25px;
 }
 
-/* Video grid & cards */
+/* Video grid & thumbnail cards */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -167,51 +214,36 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Responsive styles */
+/* Responsive tweaks */
 @media (max-width: 600px) {
   .accordion-header { font-size: 1rem; }
   .card .content h4 { font-size: 0.9rem; }
 }
 @media (max-width: 768px) {
-  nav {
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 10px;
-  }
-  nav a {
-    font-size: 0.9rem;
-    padding: 6px 10px;
-  }
+  .main-container { padding: 0 6px 50px 6px; }
 }
 @media (max-width: 480px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
-  nav a {
-    display: block;
-    width: 100%;
-    text-align: center;
-    border-radius: 8px;
-    padding: 10px 0;
-    background: white;
-  }
+  .main-container { padding: 0 2px 30px 2px; }
 }
-
 </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav aria-label="Main navigation">
-  <a href="index.html#home">Home</a>
-  <a href="quant.html">Quant</a>
-  <a href="lrdi.html" style="background:var(--accent);color:white;">LR-DI</a>
-  <a href="verbal.html">Verbal</a>
-  <a href="mocks.html">Mock Tests</a>
-  <a href="essays.html">Essay/GD</a>
-  <a href="gk.html">Current Affairs</a>
+<!-- Navbar + Sidebar -->
+<nav class="navbar">
+  <div class="logo">BootLearn-MBA</div>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">☰</button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="quant.html">Quant</a></li>
+    <li><a href="lrdi.html" style="background:var(--accent);color:white;">LR-DI</a></li>
+    <li><a href="verbal.html">Verbal</a></li>
+    <li><a href="mocks.html">Mock Tests</a></li>
+    <li><a href="essays.html">Essay/GD</a></li>
+    <li><a href="gk.html">Current Affairs</a></li>
+  </ul>
 </nav>
+<div class="overlay" id="overlay"></div>
 
 <div class="main-container">
   <h1 style="color:var(--primary); text-align:center; margin-bottom:30px;">
@@ -229,30 +261,37 @@ footer {
 </footer>
 
 <script>
-// Create video card HTML
-// function createCard(video) {
-//   return `
-//     <div class="card">
-//       <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank" rel="noopener" class="video-link">
-//         <div class="thumbnail-wrapper">
-//           <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.title}">
-//           <div class="play-button-overlay">▶</div>
-//         </div>
-//         <div class="content">
-//           <h4>${video.title}</h4>
-//           <p>${video.channel} ${video.duration ? `| ${video.duration}` : ""}</p>
-//         </div>
-//       </a>
-//     </div>
-//   `;
-// }
-   function createCard(video) {
-  const isPlaylist = video.id.startsWith('PL');
+// COLLAPSIBLE SIDEBAR NAV
+const toggleBtn = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+const overlay = document.getElementById('overlay');
 
-  // For playlists, use a generic playlist icon thumbnail URL
-  // Replace 'playlist-placeholder.png' with your actual placeholder image URL or path
+// Open sidebar/overlay
+toggleBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+  overlay.classList.toggle('show');
+});
+
+// Close sidebar when clicking overlay
+overlay.addEventListener('click', () => {
+  navLinks.classList.remove('show');
+  overlay.classList.remove('show');
+});
+
+// Auto-close sidebar when navigation link is clicked
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('show');
+    overlay.classList.remove('show');
+  });
+});
+
+// CARD RENDERING (video vs playlist)
+function createCard(video) {
+  const isPlaylist = video.id.startsWith('PL');
+  // For playlists, use a generic playlist icon image (change URL to your own if preferred)
   const thumbnailUrl = isPlaylist
-    ? 'https://cdn.pixabay.com/photo/2015/11/05/08/21/geometry-1023846_1280.jpg' // example free playlist icon
+    ? 'https://cdn.pixabay.com/photo/2015/11/05/08/21/geometry-1023846_1280.jpg'
     : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
 
   const url = isPlaylist
@@ -275,7 +314,7 @@ footer {
   `;
 }
 
-// Load all categories dynamically from JSON
+// Render all categories from JSON
 fetch('lrdi-videos.json')
   .then(res => res.json())
   .then(data => {
@@ -294,12 +333,11 @@ fetch('lrdi-videos.json')
       `;
     }).join('');
 
-    // Accordion click handler
+    // Accordion logic (one open at a time)
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const parent = header.parentElement;
         const body = header.nextElementSibling;
-
         document.querySelectorAll('.accordion').forEach(acc => {
           if (acc !== parent) {
             acc.classList.remove('open');
@@ -330,6 +368,3 @@ fetch('lrdi-videos.json')
 </script>
 </body>
 </html>
-
-
-
