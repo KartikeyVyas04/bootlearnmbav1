@@ -224,17 +224,45 @@ function formatCategoryName(key) {
 }
 
 // Template for creating a video card
-function createCard(video) {
+// function createCard(video) {
+//   return `
+//     <div class="card">
+//       <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank" rel="noopener" class="video-link">
+//         <div class="thumbnail-wrapper">
+//           <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.title}">
+//           <div class="play-button-overlay">▶</div>
+//         </div>
+//         <div class="content">
+//           <h4>${video.title}</h4>
+//           <p>${video.channel} ${video.duration ? `| ${video.duration}` : ''}</p>
+//         </div>
+//       </a>
+//     </div>
+//   `;
+// }
+   function createCard(video) {
+  const isPlaylist = video.id.startsWith('PL');
+
+  // For playlists, use a generic playlist icon thumbnail URL
+  // Replace 'playlist-placeholder.png' with your actual placeholder image URL or path
+  const thumbnailUrl = isPlaylist
+    ? 'https://cdn.pixabay.com/photo/2015/11/05/08/21/geometry-1023846_1280.jpg' // example free playlist icon
+    : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+
+  const url = isPlaylist
+    ? `https://www.youtube.com/playlist?list=${video.id}`
+    : `https://www.youtube.com/watch?v=${video.id}`;
+
   return `
     <div class="card">
-      <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank" rel="noopener" class="video-link">
+      <a href="${url}" target="_blank" rel="noopener" class="video-link">
         <div class="thumbnail-wrapper">
-          <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.title}">
+          <img src="${thumbnailUrl}" alt="${video.title}">
           <div class="play-button-overlay">▶</div>
         </div>
         <div class="content">
           <h4>${video.title}</h4>
-          <p>${video.channel} ${video.duration ? `| ${video.duration}` : ''}</p>
+          <p>${video.channel} ${video.duration ? `| ${video.duration}` : ""}</p>
         </div>
       </a>
     </div>
@@ -297,3 +325,4 @@ fetch('verbal-videos.json')
 
 </body>
 </html>
+
