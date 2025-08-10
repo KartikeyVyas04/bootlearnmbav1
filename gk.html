@@ -36,19 +36,37 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Navbar */
-nav {
-  background: white;
-  padding: 12px 20px;
+/* Sidebar Navbar */
+.navbar {
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid #eee;
   position: sticky;
   top: 0;
-  z-index: 10;
-  border-bottom: 1px solid #eee;
+  z-index: 1001;
 }
-nav a {
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+.menu-toggle {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li a {
   text-decoration: none;
   font-weight: 600;
   color: var(--primary);
@@ -56,10 +74,45 @@ nav a {
   border-radius: var(--radius);
   transition: background 0.2s ease, color 0.2s ease;
 }
-nav a:hover, nav a:focus {
+.nav-links li a:hover,
+.nav-links li a:focus {
   background: var(--accent);
   color: white;
   outline: none;
+}
+
+/* Overlay for mobile sidebar */
+.overlay {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+.overlay.show { display: block; }
+
+/* Mobile Sidebar */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 220px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    padding-top: 60px;
+    gap: 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    z-index: 1002;
+  }
+  .nav-links.show { left: 0; }
+  .nav-links li a {
+    display: block;
+    padding: 14px 20px;
+    border-bottom: 1px solid #eee;
+  }
 }
 
 /* Main container */
@@ -209,16 +262,21 @@ footer {
 </head>
 <body>
 
-<!-- Navbar -->
-<nav aria-label="Main navigation">
-  <a href="index.html#home">Home</a>
-  <a href="quant.html">Quant</a>
-  <a href="lrdi.html">LR-DI</a>
-  <a href="verbal.html">Verbal</a>
-  <a href="mocks.html">Mock Tests</a>
-  <a href="essays.html">Essay/GD</a>
-  <a href="gk.html" aria-current="page">Current Affairs</a>
+<!-- Navbar + Sidebar -->
+<nav class="navbar">
+  <div class="logo">BootLearn-MBA</div>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">☰</button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="quant.html">Quant</a></li>
+    <li><a href="lrdi.html">LR-DI</a></li>
+    <li><a href="verbal.html">Verbal</a></li>
+    <li><a href="mocks.html">Mock Tests</a></li>
+    <li><a href="essays.html">Essay/GD</a></li>
+    <li><a href="gk.html" aria-current="page">Current Affairs</a></li>
+  </ul>
 </nav>
+<div class="overlay" id="overlay"></div>
 
 <!-- Main content -->
 <div class="main-container" role="main">
@@ -399,6 +457,33 @@ footer {
 <footer>
   &copy; 2025 BootLearn-MBA – Curated Free Learning for Everyone
 </footer>
+
+<script>
+// COLLAPSIBLE SIDEBAR NAV
+const toggleBtn = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+const overlay = document.getElementById('overlay');
+
+// Open sidebar/overlay
+toggleBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+  overlay.classList.toggle('show');
+});
+
+// Close sidebar when clicking overlay
+overlay.addEventListener('click', () => {
+  navLinks.classList.remove('show');
+  overlay.classList.remove('show');
+});
+
+// Auto-close sidebar when navigation link is clicked
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('show');
+    overlay.classList.remove('show');
+  });
+});
+</script>
 
 </body>
 </html>
