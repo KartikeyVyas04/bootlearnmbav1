@@ -15,13 +15,7 @@
   --muted: #6b7280;
   --radius: 12px;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
@@ -31,12 +25,8 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* Sidebar Navbar */
+html { scroll-behavior: smooth; }
+/* Navbar/Sidebar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -53,6 +43,7 @@ html {
   font-size: 1.2rem;
   color: var(--primary);
   letter-spacing: 1px;
+  flex-shrink: 0;
 }
 .menu-toggle {
   font-size: 1.8rem;
@@ -80,8 +71,7 @@ html {
   color: white;
   outline: none;
 }
-
-/* Overlay for mobile sidebar */
+/* Overlay for sidebar */
 .overlay {
   display: none;
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
@@ -89,14 +79,14 @@ html {
   z-index: 1000;
 }
 .overlay.show { display: block; }
-
-/* Mobile Sidebar */
+/* Hamburger/mobile sidebar mode */
 @media (max-width: 768px) {
+  .navbar { padding: 10px 12px; }
+  .logo { font-size: 1rem; }
   .menu-toggle { display: block; }
   .nav-links {
     position: fixed;
-    top: 0;
-    left: -250px;
+    top: 0; left: -250px;
     width: 220px;
     height: 100vh;
     background: white;
@@ -114,7 +104,6 @@ html {
     border-bottom: 1px solid #eee;
   }
 }
-
 /* Main container */
 .main-container {
   max-width: 1100px;
@@ -122,8 +111,6 @@ html {
   padding: 0 20px;
   flex: 1;
 }
-
-/* Page title */
 h1 {
   font-weight: 800;
   font-size: 2.8rem;
@@ -131,8 +118,6 @@ h1 {
   text-align: center;
   margin-bottom: 10px;
 }
-
-/* Intro subtitle */
 .intro-subtitle {
   max-width: 850px;
   margin: 0 auto 40px auto;
@@ -141,7 +126,6 @@ h1 {
   text-align: center;
   line-height: 1.5;
 }
-
 /* Section styling */
 section {
   background: white;
@@ -157,26 +141,18 @@ section h2 {
   border-bottom: 3px solid var(--accent);
   padding-bottom: 6px;
 }
-
-/* Section paragraphs */
 section p, section ul {
   font-size: 1.05rem;
   color: #444;
   line-height: 1.7;
   margin-bottom: 18px;
 }
-
-/* Sub-lists */
 ul {
   list-style-type: disc;
   padding-left: 24px;
   margin-bottom: 20px;
 }
-ul li {
-  margin-bottom: 8px;
-}
-
-/* Highlighted sub-section titles */
+ul li { margin-bottom: 8px; }
 .subsection-title {
   font-weight: 700;
   margin-top: 20px;
@@ -184,16 +160,12 @@ ul li {
   font-size: 1.15rem;
   color: var(--accent);
 }
-
-/* Resources link styles */
 .resource-list {
   list-style-type: none;
   padding-left: 0;
   margin-top: 10px;
 }
-.resource-list li {
-  margin-bottom: 10px;
-}
+.resource-list li { margin-bottom: 10px; }
 .resource-list a {
   color: var(--primary);
   text-decoration: none;
@@ -203,9 +175,7 @@ ul li {
 .resource-list a:focus {
   color: var(--accent);
   text-decoration: underline;
-  outline: none;
 }
-
 /* Footer */
 footer {
   text-align: center;
@@ -216,53 +186,22 @@ footer {
   border-top: 1px solid #eee;
   flex-shrink: 0;
 }
-
-/* Responsive */
+/* Responsive adjustments */
 @media (max-width: 720px) {
-  .main-container {
-    padding: 0 15px;
-  }
-  section {
-    padding: 25px 20px;
-  }
-  h1 {
-    font-size: 2.2rem;
-  }
-  .intro-subtitle {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  nav {
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 10px;
-  }
-  nav a {
-    font-size: 0.9rem;
-    padding: 6px 10px;
-  }
+  .main-container { padding: 0 8px; }
+  section { padding: 16px 8px; }
+  h1 { font-size: 1.6rem; }
+  .intro-subtitle { font-size: 1rem; }
 }
 @media (max-width: 480px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
-  nav a {
-    display: block;
-    width: 100%;
-    text-align: center;
-    border-radius: 8px;
-    padding: 10px 0;
-    background: white;
-  }
+  .main-container { padding: 0 2px; }
+  section { padding: 10px 2px; }
 }
 </style>
 </head>
 <body>
 
-<!-- Navbar + Sidebar -->
+<!-- Navbar -->
 <nav class="navbar">
   <div class="logo">BootLearn-MBA</div>
   <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">☰</button>
@@ -278,13 +217,11 @@ footer {
 </nav>
 <div class="overlay" id="overlay"></div>
 
-<!-- Main content -->
 <div class="main-container" role="main">
   <h1>Current Affairs for MBA Success</h1>
   <p class="intro-subtitle">
     Stay ahead in your MBA preparation by keeping up with the latest Current Affairs. Our curated section brings you insights into the economy, polity, global developments, technology, and social issues—essential for your entrance exams and interviews.
   </p>
-
   <section aria-labelledby="importance-title">
     <h2 id="importance-title">Why Current Affairs Matter for MBA Aspirants</h2>
     <p>Current affairs knowledge is crucial for MBA entrance exams and interviews because it demonstrates your awareness of the business environment, analytical thinking, and ability to connect real-world events with management concepts. Here's why it's essential:</p>
@@ -294,10 +231,8 @@ footer {
       <li><strong>Business Context:</strong> Understanding current events helps in case study analysis and strategic thinking.</li>
     </ul>
   </section>
-
   <section aria-labelledby="topics-title">
     <h2 id="topics-title">Essential Current Affairs Topics for MBA Preparation</h2>
-
     <p class="subsection-title">🏛️ Economy & Business</p>
     <ul>
       <li>Union Budget highlights and implications</li>
@@ -306,7 +241,6 @@ footer {
       <li>Stock market developments</li>
       <li>Government economic initiatives</li>
     </ul>
-
     <p class="subsection-title">🏢 Corporate & Industry News</p>
     <ul>
       <li>Company performances and quarterly results</li>
@@ -315,7 +249,6 @@ footer {
       <li>Industry regulations and policies</li>
       <li>Startup ecosystem developments</li>
     </ul>
-
     <p class="subsection-title">🌍 International Affairs</p>
     <ul>
       <li>Global economic trends and trade agreements</li>
@@ -323,7 +256,6 @@ footer {
       <li>International organizations (WTO, IMF, World Bank)</li>
       <li>Foreign policy changes impacting trade</li>
     </ul>
-
     <p class="subsection-title">🔬 Science & Technology</p>
     <ul>
       <li>AI and digital transformation</li>
@@ -332,14 +264,12 @@ footer {
       <li>Environmental technology</li>
       <li>Fintech developments</li>
     </ul>
-
     <p class="subsection-title">🏅 Awards & Recognition</p>
     <ul>
       <li>Nobel Prizes and international awards</li>
       <li>Business leadership awards</li>
       <li>Government honors and recognitions</li>
     </ul>
-
     <p class="subsection-title">⚽ Sports & Culture</p>
     <ul>
       <li>Major sporting events and achievements</li>
@@ -347,10 +277,8 @@ footer {
       <li>Sports business and sponsorships</li>
     </ul>
   </section>
-
   <section aria-labelledby="resources-title">
     <h2 id="resources-title">Best Resources for Current Affairs Preparation</h2>
-
     <p class="subsection-title">📰 Essential Daily Newspapers</p>
     <ul class="resource-list">
       <li><a href="https://www.thehindu.com" target="_blank" rel="noopener">The Hindu</a> - Excellent editorials and unbiased reporting</li>
@@ -359,21 +287,18 @@ footer {
       <li><a href="https://www.business-standard.com" target="_blank" rel="noopener">Business Standard</a> - In-depth financial analysis</li>
       <li><a href="https://timesofindia.indiatimes.com" target="_blank" rel="noopener">The Times of India</a> - General coverage and accessibility</li>
     </ul>
-
     <p class="subsection-title">📱 Digital Resources</p>
     <ul class="resource-list">
       <li><a href="https://insideiim.com/gk/current-affairs" target="_blank" rel="noopener">InsideIIM Current Affairs</a> - MBA-focused updates</li>
       <li>Monthly Current Affairs Capsules - Comprehensive PDFs (Check platforms like <a href="https://testbook.com/current-affairs" target="_blank" rel="noopener">Testbook</a>, <a href="https://guidely.in" target="_blank" rel="noopener">Guidely</a>)</li>
       <li><a href="https://catking.in/daily-current-affairs" target="_blank" rel="noopener">CATKing Daily Read</a> - Curated for MBA exams</li>
     </ul>
-
     <p class="subsection-title">📺 YouTube Channels for Current Affairs</p>
     <ul class="resource-list">
       <li><a href="https://www.youtube.com/user/careerlauncher" target="_blank" rel="noopener">Career Launcher MBA</a> - Regular GK and current affairs videos</li>
       <li><a href="https://www.youtube.com/playlist?list=PL5T3-oYEATxZASioFW_pGGegHMyJ8jxg7" target="_blank" rel="noopener">BYJU'S MBA Prep</a> - Daily current affairs sessions</li>
       <li><a href="https://www.youtube.com/channel/UCaHe_9GwbOvlhfNhVzYV4TA" target="_blank" rel="noopener">Weekly MBA GK sessions</a> - Structured preparation</li>
     </ul>
-
     <p class="subsection-title">📚 Monthly Preparation Materials</p>
     <ul class="resource-list">
       <li><a href="https://testbook.com/current-affairs/monthly" target="_blank" rel="noopener">Testbook Monthly Capsules</a> - Free downloadable PDFs</li>
@@ -381,17 +306,14 @@ footer {
       <li><a href="https://www.thehindu.com/archive/current-affairs/" target="_blank" rel="noopener">The Hindu Review</a> - Monthly compilation</li>
     </ul>
   </section>
-
   <section aria-labelledby="strategy-title">
     <h2 id="strategy-title">Preparation Strategy & Tips</h2>
-
     <p class="subsection-title">📖 Daily Reading Routine</p>
     <ul>
       <li>Spend 45-60 minutes daily on newspaper reading</li>
       <li>Focus on editorial sections for opinion formation</li>
       <li>Take notes of important events and figures</li>
     </ul>
-
     <p class="subsection-title">🎯 Smart Preparation Techniques</p>
     <ul>
       <li>Use tools like ChatGPT to understand complex topics deeply</li>
@@ -399,14 +321,12 @@ footer {
       <li>Practice mock GD topics based on current issues</li>
       <li>Follow the 80-20 rule: focus on events from the past 12-18 months</li>
     </ul>
-
     <p class="subsection-title">📝 Note-Taking Strategy</p>
     <ul>
       <li>Categorize news by topics (Economy, Politics, International, etc.)</li>
       <li>Create one-liners for quick revision</li>
       <li>Maintain a current affairs diary with monthly updates</li>
     </ul>
-
     <p class="subsection-title">🧠 Retention Techniques</p>
     <ul>
       <li>Connect events to business implications</li>
@@ -415,7 +335,6 @@ footer {
       <li>Create mind maps for complex topics</li>
     </ul>
   </section>
-
   <section aria-labelledby="exam-focus-title">
     <h2 id="exam-focus-title">Exam-Specific Focus Areas</h2>
     <ul>
@@ -425,7 +344,6 @@ footer {
       <li><strong>CMAT:</strong> Government policies, Economic indicators, Global events</li>
     </ul>
   </section>
-
   <section aria-labelledby="hot-topics-title">
     <h2 id="hot-topics-title">Current Hot Topics to Focus On (2025)</h2>
     <ul>
@@ -437,7 +355,6 @@ footer {
       <li>Geopolitical changes affecting global trade</li>
     </ul>
   </section>
-
   <section aria-labelledby="success-tips-title">
     <h2 id="success-tips-title">Success Tips</h2>
     <ul>
@@ -453,30 +370,22 @@ footer {
   </section>
 </div>
 
-<!-- Footer -->
 <footer>
   &copy; 2025 BootLearn-MBA – Curated Free Learning for Everyone
 </footer>
 
 <script>
-// COLLAPSIBLE SIDEBAR NAV
 const toggleBtn = document.getElementById('menu-toggle');
 const navLinks = document.getElementById('nav-links');
 const overlay = document.getElementById('overlay');
-
-// Open sidebar/overlay
 toggleBtn.addEventListener('click', () => {
   navLinks.classList.toggle('show');
   overlay.classList.toggle('show');
 });
-
-// Close sidebar when clicking overlay
 overlay.addEventListener('click', () => {
   navLinks.classList.remove('show');
   overlay.classList.remove('show');
 });
-
-// Auto-close sidebar when navigation link is clicked
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('show');
