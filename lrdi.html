@@ -286,27 +286,17 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
-// DEVICE DETECTION FUNCTION
-function isMobile() {
-  return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
-}
-
 // CARD RENDERING (video vs playlist)
 function createCard(video) {
   const isPlaylist = video.id.startsWith('PL');
+  // For playlists, use a generic playlist icon image (change URL to your own if preferred)
   const thumbnailUrl = isPlaylist
     ? 'https://cdn.pixabay.com/photo/2015/11/05/08/21/geometry-1023846_1280.jpg'
     : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
 
-  // Decide link: custom for desktop, YouTube for mobile
-  let url;
-  if (isPlaylist) {
-    url = `https://www.youtube.com/playlist?list=${video.id}`;
-  } else if (isMobile()) {
-    url = `https://www.youtube.com/watch?v=${video.id}`;    // YouTube on mobile
-  } else {
-    url = `https://www.yout-ube.com/watch?v=${video.id}`;   // Your custom domain on desktop
-  }
+  const url = isPlaylist
+    ? `https://www.youtube.com/playlist?list=${video.id}`
+    : `https://www.youtube.com/watch?v=${video.id}`;
 
   return `
     <div class="card">
